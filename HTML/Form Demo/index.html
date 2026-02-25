@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Form Demo</title>
+</head>
+<body>
+<h1>My Form</h1>
+
+<!-- get (default) sends through URL - you can see submission results in URL -->
+<!-- post hides items - you can hide the password so it doesn't show in URL -->
+<!-- action tells you where to go/where to send the data -->
+
+<form action="/admin/users" method="GET">
+    <label> First Name:
+        <input type="text" name="fname" minlength="3" maxlength="24" required>
+    </label>
+    <br><br>
+    <label> Last Name:
+        <input type="text" name="lname">
+    </label>
+    <br><br>
+    <label> Email:
+        <input type="email" name="email">
+    </label>
+    <br><br>
+    <label> Age:
+        <input type="number" name="phone" min="1" max="99">
+    </label>
+    <br><br>
+    <label> Phone:
+        <input type="tel" name="phone">
+    </label>
+    <br><br>
+    <label> Password:
+        <input type="password" name="psw"
+               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+               title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+    </label>
+    <br><br>
+    <label> DOB:
+        <input type="date" name="date">
+    </label>
+    <br><br>
+
+    <br><br>
+    <label> Gender:
+        <input type="radio" name="gender" value="M">M
+        <input type="radio" name="gender" value="F">F
+        <input type="radio" name="gender" value="AH-60">Apache Helicopter
+    </label>
+
+    <br><br>
+    <label> 21 or older?:
+        <input type="radio" name="gender" value="N" checked>N
+        <input type="radio" name="gender" value="Y">Y
+    </label>
+
+    <br><br>
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
