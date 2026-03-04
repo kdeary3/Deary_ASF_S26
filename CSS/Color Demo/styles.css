@@ -12,6 +12,7 @@ body {
 
 .fa-trash-can {
     color: var(--blue_slate);
+
     font-size: 100px;
     text-shadow: 5px 5px 0 white;
 }
