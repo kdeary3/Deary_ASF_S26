@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DOM - Demo 1</title>
+</head>
+<body>
+<h1>Avengers</h1>
+<h1>X-Men</h1>
+<ul>
+    <li id="teamleader">Wolverine</li>
+    <li class="mutant">Cyclops</li>
+    <li class="mutant">ShadowCat</li>
+</ul>
+
+    <script>
+    let xmenTeamLeader = document.getElementById("teamleader");
+    console.log(xmenTeamLeader);
+
+    let mutants = document.getElementsByClassName("mutant");
+    console.log(mutants);
+    console.log(mutants[1]);
+
+    let allXmen = document.getElementsByTagName("li")
+    console.log(allXmen)
+    console.log(allXmen[1])
+
+    let selectedXmen = document.querySelector("#teamleader")
+    console.log(selectedXmen)
+
+    // Use JS to alter specific elements on static HTML
+    let allTeams = document.querySelectorAll("h1")[1]
+    allTeams.style.color = "red";
+    allTeams.style.border = "green 3px solid";
+    allTeams.style.fontSize = "48px";
+    console.log(allTeams)
+    console.log(allTeams)
+
+
+
+    </script>
+
+</body>
+</html>
+
