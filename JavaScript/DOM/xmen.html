@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>X-Men Roster Application</title>
+</head>
+<body>
+<h1>X-Men Roster Application</h1>
+<form action="/cerebro">
+  <label for="first_name">First Name: </label>
+  <input type="text" name="fname" id="first_name" />
+  <br><br>
+  <label for="password">Password: </label>
+  <input type="password" name="password" id="password" />
+  <br><br>
+  <label> Are you Magneto?
+    <input type="radio" name="isMagneto" id="isMagnetoYes" value="yes"> Yes
+    <input type="radio" name="isMagneto" id="isMagnetoNo" value="no"> No
+  </label>
+  <br><br>
+  <button type="Submit">Join Team</button>
+</form>
+
+<script>
+  const rosterHeader = document.querySelector("h1");
+  //add event listener
+  // listening for a click event on h1 element
+  rosterHeader.addEventListener(
+          "click",
+          (()=>{rosterHeader.textContent="Avengers Assemble!"})
+  )
+</script>
+
+<script>
+  const form = document.getElementsByTagName("form")
+  form[0].addEventListener(
+          "submit",
+          (event) => {
+            event.preventDefault(); // Prevents event defaults (page from reloading)
+            let firstName = document.getElementById("first_name")
+            let password = document.getElementById("password")
+            let isMagneto = document.querySelector('input[name="isMagneto"]:checked')
+            console.log("Submitted")
+            let newData = {
+              fname: firstName.value,
+              password: password.value,
+              isMagneto: isMagneto.value
+            }
+            console.log(newData)
+          }
+  )
+</script>
+
+</body>
+</html>

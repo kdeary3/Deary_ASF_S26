@@ -6,7 +6,6 @@ console.log(`${string.length} characters in this untrimmed.`)
 string.trim()
 console.log(`${string.length} characters in this untrimmed.`)
 
-
 let sliceString = "Keno Deary"
 let result = sliceString.slice(0,4)
 console.log(result)
@@ -14,7 +13,6 @@ console.log(result)
 let indexOfString = "This is a long ass sentence."
 let result2 = indexOfString.indexOf("ass")
 console.log(result2)
-
 
 // initial test
 let examples = ['APPLE', 'Apple Cider', '   applesauce', 'apple pie', 'applepen']
