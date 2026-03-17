@@ -1,7 +1,7 @@
 1. Create parent directory
 2. Create package.json (app blueprint):  
         ```npm init [-y]```
-3. Create index.js
+3. Create index.ts
 4. Install packages <br>
         ```npm i [package]```
 5. Import the packages  

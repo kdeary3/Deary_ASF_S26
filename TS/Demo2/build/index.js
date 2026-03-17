@@ -1,0 +1,20 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+let dog = "woof";
+console.log(dog);
+let num;
+let num2 = 5;
+let isMarried = false;
+const fullname = (fname, lname) => {
+    return `${fname} ${lname}`;
+};
+console.log(fullname("lerrroyyyyyy", "jeennkkiinnssss"));
+let names = ["dick", "tom", "harry"];
+let names2 = ["dick", "tom", "harry"];
+let nums = [1, 2, 3];
+let nums2 = [4, 5, 6];
+const helpers_1 = require("./helpers");
+let area_result = (0, helpers_1.area)(4, 5);
+console.log(area_result);
+let perimeter_result = (0, helpers_1.perimeter)(2, 3);
+console.log(perimeter_result);
