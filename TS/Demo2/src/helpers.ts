@@ -8,10 +8,12 @@ export const perimeter =
     return width + width + length + length
 }
 
+const data = "premium"
+
 const foodData = [
     {category: "premium"},
     {category: "standard"},
-    {category: "boba"}
+    {category: "boba"},
 ]
 
 // export const filteredCategories= foodData.filter(data) => {
