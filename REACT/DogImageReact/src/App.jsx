@@ -1,6 +1,5 @@
-import Button from 'react-bootstrap/Button'
-
-import {useState, useEffect} from "react";
+import { Button, Image } from 'react-bootstrap'
+import { useState, useEffect } from "react";
 
 const App = () => {
 
@@ -19,7 +18,7 @@ const App = () => {
             .catch( error => {
                 console.error(error)
             })
-    }, [imgPath])
+    }, [])
 
     const handleClick = () => {
         let endpoint = "https://dog.ceo/api/breeds/image/random"
@@ -39,10 +38,12 @@ const App = () => {
 
   return (
     <>
-      <h1>Dog Image Generator React</h1>
+        <h1>Dog Image Generator React</h1>
+
         <Button variant="warning" onClick={handleClick}>Click for Random Dog</Button>
         <br/><br/>
-        <img src={imgPath} alt="dog image"/>
+        <Image src={imgPath} thumbnail alt="dog image"/>
+
     </>
   )
 }
