@@ -14,6 +14,7 @@ const App = () => {
             .max(12, "Must be between 8 and 12 characters.")
             .required("Field is required."),
         age: number()
+            .transform((value) => (isNaN(value) ? undefined : value))
             .min(1, "Must be at least 1")
             .max(99, "Cannot be more than 99")
             .required("Field is required.")
