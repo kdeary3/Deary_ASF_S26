@@ -1,52 +1,71 @@
 import React, {useEffect, useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import {Col} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
+import MovieCard from "../components/moviecard.jsx";
 
 function Results() {
 
     const [movies, setMovies] = useState([])
+    const [searchMovie, setSearchMovie] = useState("")
 
-    useEffect(
-        () => {
-            const options = {
-                method: 'GET',
-                headers: {
-                    accept: 'application/json',
-                    Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_TOKEN}`
-                }
-            };
+    const options = {
+        method: 'GET',
+        headers: {
+            accept: 'application/json',
+            Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_TOKEN}`
+        }
+    };
 
-            fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', options)
-                .then(res => res.json())
-                .then(parsedResponse => {
-                    console.log(parsedResponse.results)
-                    setMovies(parsedResponse.results)
-                })
-                .catch(err => console.error(err));
+    useEffect(() => {
+        fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', options)
+            .then(res => res.json())
+            .then(parsedResponse => {
+                console.log(parsedResponse.results)
+                setMovies(parsedResponse.results)
+            })
+            .catch(err => console.error(err));
+    }, [])
 
-        }, [])
+    const handleChange = (event) => {
+        event.preventDefault()
+        setSearchMovie(event.target.value)
+        console.log(event.target.value)
 
-    let displayMovies = movies.map(data => {
-        return (
-            <Card style={{width: '18rem'}}>
-                <Card.Img variant="top" src="holder.js/100px180"/>
-                <Card.Body>
-                    <Card.Title>{data.title}</Card.Title>
-                    <Card.Text>{data.overview}</Card.Text>
+        fetch(`https://api.themoviedb.org/3/search/movie?query=${searchMovie}&include_adult=false&language=en-US&page=1`, options)
+            .then(res => res.json())
+            .then(parsedResponse => {
+                console.log(parsedResponse.results)
+                setMovies(parsedResponse.results)
+            })
+            .catch(err => console.error(err));
 
-                </Card.Body>
-            </Card>
-        )
-    })
+    }
 
     return (
-        <>
+        <Container py-4="true">
             <h1>Results Page</h1>
-            <Col>
-                {displayMovies}
-            </Col>
-        </>
+
+            <form action="">
+                <label>
+                    <input type="text"
+                           placeholder="Enter a movie title"
+                           value={searchMovie}
+                           onChange={handleChange}/>
+                </label>
+
+                <button type="submit">Submit</button>
+            </form>
+
+            <Row xs={1} md={2} lg={4} className="g-4">
+                {movies.map((movie) => (
+                    <Col key={movie.id} className="d-flex">
+                        {/* We use d-flex to ensure the card fills the column height */}
+                        <MovieCard data={movie}/>
+                    </Col>
+                ))}
+            </Row>
+        </Container>
     );
 };
 
